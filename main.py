@@ -30,4 +30,5 @@ def scrape(query: str):
                 "price": price.text,
                 "link": link["href"]
             })
+
     return results
