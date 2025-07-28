@@ -17,7 +17,9 @@ def scrape(query: str):
     url = f"https://www.ebay.fr/sch/i.html?_nkw={query}"
     headers = {"User-Agent": "Mozilla/5.0"}
     r = requests.get(url, headers=headers)
-    soup = BeautifulSoup(r.text, "html.parser")
+
+    # Renvoie le contenu HTML directement
+    return {"html": r.text[:1000]}  # Limité aux 1000 premiers caractères
 
     results = []
     for item in soup.select(".s-item")[:10]:
